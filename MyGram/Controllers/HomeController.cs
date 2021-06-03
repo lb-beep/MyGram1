@@ -22,17 +22,24 @@ namespace MyGram.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         public bool Register(string User, string Password)
         {
             string result = $"The user is {User} and the password is {Password}";
 
             return true;
+        }
+
+        public JsonResult GetUser()
+        {
+            User user1 = new User();
+            user1.userId = 1;
+            user1.userName = "Antonio";
+
+            return Json(user1);
+        }
+        public IActionResult Privacy()
+        {
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -32,8 +32,30 @@ $("#LogIn").click(function () {
 });
 
 $("#SignUP").click(function () {
-    $("<span></span>").text("User").css("margin-right", "10px").appendTo(divContainer);
-    $("<span></span>").text("Password").css("margin-right", "10px").appendTo(divContainer);
+    $("#UserInputForm").show();
 
 });
 
+$("#UserInputForm").hide();
+
+$(document).ready(function () {
+    $('form[name="UserInputForm"]').validate({
+        rules: {
+            User: "required";
+            Password: "required"
+        },
+        message: {
+            User: "User is required";
+            Password: "Password is required"
+        },
+        submithandler: function (form) {
+            var user = $("#User").val();
+            var password = $("#Password").val();
+
+            alert("The user you submitted was: " + user +
+                " and the password is: " + password);
+
+        }
+    });
+
+});

@@ -70,5 +70,17 @@ $(document).ready(function () {
 
         }
     });
+    $.when(ajax({
+        url: "GetUser",
+        type: "Get",
+        async: true,
+        datatype: "json"
+
+    })).then(function (data) {
+        var stringVar = data.userId + ", " + ", " +
+            data.userName;
+
+        alert(stringVar);
+    });
 
 });

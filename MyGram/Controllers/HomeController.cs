@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -28,11 +28,11 @@ namespace MyGram.Controllers
             return View();
         }
 
-        public IActionResult Register(string User, string Password)
+        public bool Register(string User, string Password)
         {
             string result = $"The user is {User} and the password is {Password}";
 
-            return Content(result);
+            return true;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
